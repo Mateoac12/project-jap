@@ -25,6 +25,21 @@
   object-fit: cover;
 }
 
+.card {
+  box-shadow: #d31c6b 4px 4px 0px;
+  transition: all 0s 0s;
+  position: relative;
+}
+
+.card:hover, .card:hover > .card-body{
+  background-color: #d31c6b;
+  color: white;
+  left: -2px;
+  top: -2px;
+  box-shadow: #d31c6b 6px 6px 0px;
+
+}
+
 
 #productos small{
   margin-right: -50px;

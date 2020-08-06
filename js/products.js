@@ -36,4 +36,12 @@ document.addEventListener("DOMContentLoaded", function (e) {
             listaProductos.appendChild(fragment)
 
         })
+        .catch(err => {
+
+            const mensajeError = document.createElement('P')
+            mensajeError.textContent = "Error: " + err.status + ". No se pudo encontrar la lista de productos. (Algo salió mal, perdón :c)"
+
+            listaProductos.appendChild(mensajeError)
+            
+        })
 });

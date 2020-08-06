@@ -7,6 +7,8 @@ fetch('https://japdevdep.github.io/ecommerce-api/category/all.json')
         const listCategory = document.getElementById('productos')
         const fragment = document.createDocumentFragment()
 
+        let contador = 0
+
         for (const productInfo of res) {        //TODO: permitir ver unicamente 6 categorias
             const productCategory = document.createElement('DIV')
             productCategory.classList.add('col-6', 'col-md-4', 'mb-3')
@@ -24,6 +26,11 @@ fetch('https://japdevdep.github.io/ecommerce-api/category/all.json')
                 </a>
                 `
             fragment.appendChild(productCategory)
+
+            contador++
+
+            // muestra 6 categorias dentro del home
+            if (contador == 6) break;
         }
 
         listCategory.appendChild(fragment)
