@@ -1,3 +1,5 @@
+
+
 // introduce las categorias al home de la pagina
 fetch('https://japdevdep.github.io/ecommerce-api/category/all.json')
     .then(res => res.ok ? Promise.resolve(res) : Promise.reject(res))

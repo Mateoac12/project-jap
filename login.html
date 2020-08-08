@@ -34,17 +34,59 @@
       padding: 15px;
       margin: auto;
     }
+
+    .form-signin {
+        width: 100%;
+        max-width: 330px;
+        padding: 15px;
+        margin: auto;
+    }
+
+    .form-signin .form-control {
+        position: relative;
+        padding: 10px;
+        font-size: 16px;
+    }
+    .form-signin .form-control:focus {
+        z-index: 1;
+    }
+    .form-signin input[type="email"] {
+        margin-bottom: -1px;
+        border-bottom-right-radius: 0;
+        border-bottom-left-radius: 0;
+    }
+    .form-signin input[type="password"] {
+        margin-bottom: 10px;
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+    }
+    
   </style>
 </head>
 
 <body class="text-center">
   <div class="container p-5">
-    <div class="alert alert-danger" role="alert" style="position: relative; width:auto; top: 0;">
+    <!--<div class="alert alert-danger" role="alert" style="position: relative; width:auto; top: 0;">
       <h4 class="alert-heading">¡A trabajar! :)</h4>
       <p>Esta sección corresponde a: Entrega 1 (Fecha de entrega: 16/08/2020) -> Punto 3 y 4.</p>
       <hr>
       <p class="mb-0">Para saber qué debes hacer, fijate en la actividad en CREA correspondiente a esta entrega.</p>
-    </div>
+    </div>-->
+
+    <form action="index.html" method="POST" id="formSignin" class="form-signin">
+        <img src="img/signin01.png" alt="#" id="imageSignin" class="image-fluid w-50 mb-3">
+        <h1 class="h3 mb-3">Inicio de sesión</h1>
+        <input type="email" id="inputEmail" class="form-control" placeholder="email" required autofocus>
+        <input type="password" id="inputPass" class="form-control" placeholder="contraseña" required>
+        <div class="checkbox mb-3 mt-3 custom-control custom-switch">
+
+            <input type="checkbox" class="custom-control-input" id="customSwitch1">
+            <label class="custom-control-label" for="customSwitch1">Recordar usuario</label>
+
+        </div>
+        <button id="submitSignin" class="btn btn-outline-success btn-block" type="submit">Iniciar sesión</button>
+
+    </form>
   </div>
 
   <script src="js/init.js"></script>
