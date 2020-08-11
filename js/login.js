@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", function(e){
 
         if (valueEmail) {
             window.sessionStorage.setItem('user', inputEmail.value)     //guardo mi usuario hasta que el navegador se cierre
-            formSignin.submit()     // envia el formulario(sin utilidad aun) y redirige a index.html
+            location.replace('index.html')     // redirige a index.html
         } else {
             console.error('El valor del campo de email no cumple con la validación establecida en validation.js')   //error en consola
             alert('Introdujo una cuenta de email que no cumple con la validación. Revise nuevamente.')      //error para el usuario
