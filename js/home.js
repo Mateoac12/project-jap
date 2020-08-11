@@ -1,17 +1,18 @@
 
-
-// introduce las categorias al home de la pagina
+// introduce las categorias en index.html
 fetch('https://japdevdep.github.io/ecommerce-api/category/all.json')
-    .then(res => res.ok ? Promise.resolve(res) : Promise.reject(res))
-    .then(res => res.json())
+    .then(res => res.ok ? Promise.resolve(res) : Promise.reject(res))       // valida que el enlace sea correcto
+    .then(res => res.json())        // transforma el contenido de String a Objeto
     .then(res => {
-    
+        // represento el objeto dentro de card's en el html
+
         const listCategory = document.getElementById('productos')
         const fragment = document.createDocumentFragment()
 
-        let contador = 0
+        let contadorCategorias = 0
+        const numCategorias = 6     // numero de categorias maxima a mostrar
 
-        for (const productInfo of res) {        //TODO: permitir ver unicamente 6 categorias
+        for (const productInfo of res) {
             const productCategory = document.createElement('DIV')
             productCategory.classList.add('col-6', 'col-md-4', 'mb-3')
 
@@ -29,11 +30,14 @@ fetch('https://japdevdep.github.io/ecommerce-api/category/all.json')
                 `
             fragment.appendChild(productCategory)
 
-            contador++
+            contadorCategorias++
 
-            // muestra 6 categorias dentro del home
-            if (contador == 6) break;
+            if (contadorCategorias == numCategorias) break;
         }
 
         listCategory.appendChild(fragment)
-    })
+})
+
+
+// valida si hay un usuario registrado, si no es asi redirige a login.html
+if (sessionStorage.length == 0) location.replace('login.html')

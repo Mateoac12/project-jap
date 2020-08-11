@@ -22,8 +22,8 @@ const validateDni = (dni) => {
 const validateEmail = (email) => {
     const emailRegex = /^(([^<>()\[\]\\.,:\s@"]+(\.[^<>()\[\]\\.,:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
 
-    if(emailRegex.test(email)) console.log('email válido')
-    else console.log('email incorrecto')
+    if(emailRegex.test(email)) return true
+    else return false
 }
 
 const validateIban = (iban) => {
@@ -78,4 +78,3 @@ const validateCreditCard = (card) => {
     else console.log('card incorrecto')
 }
 
-validateEmail('alvarez.fing@gmail.com')

@@ -1,43 +1,45 @@
-//Función que se ejecuta una vez que se haya lanzado el evento de
-//que el documento se encuentra cargado, es decir, se encuentran todos los
-//elementos HTML presentes.
+
 document.addEventListener("DOMContentLoaded", function(e){
 
 
     const formSignin = document.getElementById('formSignin')
     const inputEmail = document.getElementById('inputEmail')
     const inputPass = document.getElementById('inputPass')
-    const submitSignin = document.getElementById('submitSignin')
     const imageSignin = document.getElementById('imageSignin')
 
-    const formIsValid = {
-        inputEmail: false,
-        inputPass: false
-    }
 
-    //evita que el formulario se envie sin ser verificado
+    // cuando toco el boton de 'iniciar sesion'
     formSignin.addEventListener('submit', (e) => {
-        e.preventDefault()
-        validateForm()
+        e.preventDefault()      // evita que el formulario se envie sin la verificacion de Bootstrap
+        validateForm()          // guarda la informacion en Web Storage
     })
 
-    inputEmail.addEventListener('input', (e) => {
-        imageSignin.setAttribute('src', 'img/signin01.png')
-        if (e.target.value.trim().length > 0) formIsValid.inputEmail = true
-    })
 
-    inputPass.addEventListener('input', (e) => {
-        imageSignin.setAttribute('src', 'img/signin02.png')
-        if (e.target.value.trim().length > 0) formIsValid.inputPass = true
-    })
-
+    // evalua que los campos de formulario sean correctos
     const validateForm = () => {
-        const formValues = Object.values(formIsValid)  //pasa a un array los valores del objeto
-        const valid = formValues.findIndex(value => value == false)
+        const valueEmail = validateEmail(inputEmail.value)     // origin: validation.js / devuelve si el email cumple la verificacion
 
-        if (valid == -1) {
-            formSignin.submit()
+        if (valueEmail) {
+            window.sessionStorage.setItem('user', inputEmail.value)     //guardo mi usuario hasta que el navegador se cierre
+            formSignin.submit()     // envia el formulario(sin utilidad aun) y redirige a index.html
+        } else {
+            console.error('El valor del campo de email no cumple con la validación establecida en validation.js')   //error en consola
+            alert('Introdujo una cuenta de email que no cumple con la validación. Revise nuevamente.')      //error para el usuario
         }
     }
+
+
+    //   ----------   FUNCIONALIDADES GRAFICAS CON EL LOGOTIPO   ----------   //
+
+    // cuando escribo en la casilla de email
+    inputEmail.addEventListener('input', (e) => {
+        imageSignin.setAttribute('src', 'img/signin01.png')     // selecciona el logotipo con los ojos abiertos
+    })
+
+
+    // cuando escribo en la casilla del password
+    inputPass.addEventListener('input', (e) => {
+        imageSignin.setAttribute('src', 'img/signin02.png')     // selecciona el logotipo con los ojos cerrados
+    })
 
 });

@@ -2,6 +2,16 @@
   border-radius: 0 0 10% 10%;
 }
 
+.product-price {
+  background-color: #d31c6b;
+  color: white;
+  padding: 5px;
+  border-radius: 5px;
+  position: relative;
+  top: -20px;
+  z-index: 1;
+}
+
 #logo {
   position: absolute;
   bottom: -15px;
