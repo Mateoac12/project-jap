@@ -14,6 +14,7 @@ document.addEventListener("DOMContentLoaded", function (e) {
             for (const infoProducto of res) {
 
                 const producto = document.createElement('A')
+                producto.setAttribute('href', 'product-info.html')
                 producto.classList.add('list-group-item', 'list-group-item-action')
                 
                 producto.innerHTML = `
