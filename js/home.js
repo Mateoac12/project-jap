@@ -38,6 +38,5 @@ fetch('https://japdevdep.github.io/ecommerce-api/category/all.json')
         listCategory.appendChild(fragment)
 })
 
-
 // valida si hay un usuario registrado, si no es asi redirige a login.html
-if (sessionStorage.length == 0) location.replace('login.html')
+if (sessionStorage.getItem('user') == null) location.replace('login.html')

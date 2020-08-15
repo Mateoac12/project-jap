@@ -1,7 +1,6 @@
 
 document.addEventListener("DOMContentLoaded", function(e){
 
-
     const formSignin = document.getElementById('formSignin')
     const inputEmail = document.getElementById('inputEmail')
     const inputPass = document.getElementById('inputPass')
@@ -10,7 +9,7 @@ document.addEventListener("DOMContentLoaded", function(e){
 
     // cuando toco el boton de 'iniciar sesion'
     formSignin.addEventListener('submit', (e) => {
-        e.preventDefault()      // evita que el formulario se envie sin la verificacion de Bootstrap
+        e.preventDefault()      // evita que el formulario se envie sin la validacion de Bootstrap
         validateForm()          // guarda la informacion en Web Storage
     })
 
@@ -38,6 +37,8 @@ document.addEventListener("DOMContentLoaded", function(e){
 
 
     // cuando escribo en la casilla del password
+    //TODO: Mejorar la funcionalidad del mismo para que no se recargue por cada caracter escrito - OPTIMIZAR
+    //* para desarrollador: descargar extencion: Better Comments para diferenciar comentarios en el proyecto
     inputPass.addEventListener('input', (e) => {
         imageSignin.setAttribute('src', 'img/signin02.png')     // selecciona el logotipo con los ojos cerrados
     })
