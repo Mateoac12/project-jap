@@ -12,6 +12,19 @@
   z-index: 1;
 }
 
+.product-rel {
+  position: relative;
+  top:-20px;
+
+  background: tomato;
+  color: white;
+
+  padding: 5px;
+  border-radius: 5px;
+  z-index: 1;
+
+}
+
 #logo {
   position: absolute;
   bottom: -15px;

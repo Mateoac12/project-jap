@@ -6,16 +6,20 @@ var currentSortCriteria = undefined;
 var minCount = undefined;
 var maxCount = undefined;
 
+
+//* TERCERA FUNCION QUE SE APLICA 
 function sortCategories(criteria, array){
     let result = [];
     if (criteria === ORDER_ASC_BY_NAME)
     {
+        console.log(array)
         result = array.sort(function(a, b) {
             if ( a.name < b.name ){ return -1; }
             if ( a.name > b.name ){ return 1; }
             return 0;
         });
     }else if (criteria === ORDER_DESC_BY_NAME){
+        console.log(array)
         result = array.sort(function(a, b) {
             if ( a.name > b.name ){ return -1; }
             if ( a.name < b.name ){ return 1; }
@@ -35,6 +39,7 @@ function sortCategories(criteria, array){
     return result;
 }
 
+//* CUARTA FUNCION QUE SE APLICA
 function showCategoriesList(){
 
     let htmlContentToAppend = "";
@@ -66,6 +71,7 @@ function showCategoriesList(){
     }
 }
 
+//* SEGUNDA FUNCION QUE SE APLICA
 function sortAndShowCategories(sortCriteria, categoriesArray){
     currentSortCriteria = sortCriteria;
 
@@ -79,28 +85,33 @@ function sortAndShowCategories(sortCriteria, categoriesArray){
     showCategoriesList();
 }
 
-//Función que se ejecuta una vez que se haya lanzado el evento de
-//que el documento se encuentra cargado, es decir, se encuentran todos los
-//elementos HTML presentes.
+
+//* PRIMERA FUNCION QUE SE APLICA
 document.addEventListener("DOMContentLoaded", function(e){
+    // evalua si la url enviada es correcta 
     getJSONData(CATEGORIES_URL).then(function(resultObj){
         if (resultObj.status === "ok"){
+            console.log(resultObj)
             sortAndShowCategories(ORDER_ASC_BY_NAME, resultObj.data);
         }
     });
 
+    // se aplica al hacer click en ORDEN ASC
     document.getElementById("sortAsc").addEventListener("click", function(){
         sortAndShowCategories(ORDER_ASC_BY_NAME);
     });
 
+    // se aplica al hacer click en ORDEN DESC
     document.getElementById("sortDesc").addEventListener("click", function(){
         sortAndShowCategories(ORDER_DESC_BY_NAME);
     });
 
+    // se aplica al hacer click en ORDENAR POR CANTIDAD DE PRODUCTOS
     document.getElementById("sortByCount").addEventListener("click", function(){
         sortAndShowCategories(ORDER_BY_PROD_COUNT);
     });
 
+    // se aplica al hacer click en LIMPIAR FILTRO NUMERICO
     document.getElementById("clearRangeFilter").addEventListener("click", function(){
         document.getElementById("rangeFilterCountMin").value = "";
         document.getElementById("rangeFilterCountMax").value = "";
@@ -111,9 +122,10 @@ document.addEventListener("DOMContentLoaded", function(e){
         showCategoriesList();
     });
 
+    // se aplica la hacer click en FILTRO POR ORDEN NUMERICO DEFINIDO POR USUARIO
+    //Obtengo el mínimo y máximo de los intervalos para filtrar por cantidad
+    //de productos por categoría.
     document.getElementById("rangeFilterCount").addEventListener("click", function(){
-        //Obtengo el mínimo y máximo de los intervalos para filtrar por cantidad
-        //de productos por categoría.
         minCount = document.getElementById("rangeFilterCountMin").value;
         maxCount = document.getElementById("rangeFilterCountMax").value;
 

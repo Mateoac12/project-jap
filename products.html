@@ -66,12 +66,57 @@
             Lista de productos
         </h2>
         <p class="text-muted text-center">Aquí se podrán ver todos los productos</p>
+        <!-- FILTRADO -->
+        <div class="row">
+            <div class="col text-right">
+                <div class="btn-group btn-group-toggle mb-4" data-toggle="buttons">
+                    <label class="btn btn-light active" id="costAsc" >
+                        <input type="radio" name="options" autocomplete="off" checked><i class="fas fa-tags"></i> $
+                    </label>
+                    <label class="btn btn-light" id="costDesc" >
+                        <input type="radio" name="options" autocomplete="off"><i class="fas fa-tag"></i> $
+                    </label>
+                    <label class="btn btn-light" id="costRel" >
+                        <input type="radio" name="options" autocomplete="off"><i class="fas fa-heart"></i> Recomendados
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="row justify-content-end">
+        <div class="col-md-6 form-inline mb-1">
+            <input id="filtroPalabra" class="form-control mr-sm-2" type="search" placeholder="Escribe el producto" aria-label="Search">
+            <!-- TODO: por el momento no sirve -->
+            <!-- <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar!</button> -->
+        </div>
+            <div class="col-md-6 col-sm-12 mb-1 container">
+            <div class="row container p-0 m-0">
+                <div class="col">
+                <p class="font-weight-normal text-right my-2">Valor:</p>
+                </div>
+                <div class="col">
+                <input class="form-control" type="number" placeholder="min." id="rangeFilterPriceMin">
+                </div>
+                <div class="col">
+                <input class="form-control" type="number" placeholder="máx." id="rangeFilterPriceMax">
+                </div>
+                <div class="col-3 p-0">
+                <div class="btn-group" role="group">
+                    <button class="btn btn-light btn-block" id="rangeFilterPrice">Filtrar</button>
+                    <button class="btn btn-link btn-sm" id="clearRangePrice">Limpiar</button>
+                </div>
+                </div>
+            </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="list-group" id="cat-list-container">
+            </div>
+        </div>
         <hr>
       <div id="lista-productos" class="list-group">
           <!-- contenido de los productos por products.js -->
       </div>
     </div>
-
     <!-- FOOTER -->
     <footer class="text-muted bg-light">
       <div class="container">
