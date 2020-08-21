@@ -6,6 +6,8 @@ const filtroPalabra = document.getElementById('filtroPalabra')
 const filtroPrecio = document.getElementById('rangeFilterPrice')
 const limpiarFiltro = document.getElementById('clearRangePrice')
 
+let seAplicoFiltro = 0;
+
 // array que se utuliza para almacenar el filtrado antiguo que se hizo y no tener que andar 
 let nuevoArray = []
 //*   ----------   CONDICIONES DE FILTRADO   ----------
@@ -42,6 +44,19 @@ const filtroRelevancia = (nuevoArray) => {
 
 const filtroPorPalabras = (array) => {
     //TODO: Hay que hacer un gran trabajo aqui
+    let palabra = filtroPalabra.value.toLowerCase()
+
+    let arrayFiltroPalabras = []
+    array.forEach(el => {
+        let nombreProducto = el.name.toLowerCase()
+        if (nombreProducto.indexOf(palabra) !== -1) {
+            arrayFiltroPalabras.push(el)
+            console.log(arrayFiltroPalabras)
+            console.log(el)
+        }
+        imprimirLista(arrayFiltroPalabras)
+    })
+
 }
 
 const filtroPorPrecio = (array) => {
