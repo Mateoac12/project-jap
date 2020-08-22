@@ -10,136 +10,12 @@ let seAplicoFiltro = 0;
 
 // array que se utuliza para almacenar el filtrado antiguo que se hizo y no tener que andar 
 let nuevoArray = []
-//*   ----------   CONDICIONES DE FILTRADO   ----------
 
-// filtro ascendente
-const filtroAsc = (array) => {
-    array.sort((a,b) => {
-        if ( parseInt(a.cost) > parseInt(b.cost) ) return -1
-        if ( parseInt(a.cost) < parseInt(b.cost) ) return 1
-        return 0;
-    })
-    imprimirLista(array)
-}
-
-// filtro descendente
-const filtroDesc = (nuevoArray) => {
-    nuevoArray.sort((a, b) => {
-        if ( parseInt(a.cost) < parseInt(b.cost) )return -1
-        if ( parseInt(a.cost) > parseInt(b.cost) )return 1
-        return 0;
-    })
-    imprimirLista(nuevoArray)
-}
-
-// filtro de relevancia
-const filtroRelevancia = (nuevoArray) => {
-    nuevoArray.sort((a,b) => {
-        if ( parseInt(a.soldCount) > parseInt(b.soldCount) )return -1
-        if ( parseInt(a.soldCount) < parseInt(b.soldCount) )return 1
-        return 0;
-    })
-    imprimirLista(nuevoArray)
-}
-
-const filtroPorPalabras = (array) => {
-    //TODO: Hay que hacer un gran trabajo aqui
-    let palabra = filtroPalabra.value.toLowerCase()
-
-    let arrayFiltroPalabras = []
-    array.forEach(el => {
-        let nombreProducto = el.name.toLowerCase()
-        if (nombreProducto.indexOf(palabra) !== -1) {
-            arrayFiltroPalabras.push(el)
-            console.log(arrayFiltroPalabras)
-            console.log(el)
-        }
-        imprimirLista(arrayFiltroPalabras)
-    })
-
-}
-
-const filtroPorPrecio = (array) => {
-    // por cada click que doy a filtrar me toma el valor introducido
-    const precioMin = document.getElementById('rangeFilterPriceMin').value
-    const precioMax = document.getElementById('rangeFilterPriceMax').value
-    
-    // evalua el valor introducido en el campo de valor minimo
-    if ((precioMin != undefined) && (precioMin != "")) valorMin = parseInt(precioMin)
-    else valorMin = 0
-    
-    // evalua el valor introducido en el campo de valor maximo
-    if ((precioMax != undefined) && (precioMax != "")) valorMax = parseInt(precioMax)
-    else {
-        let listaNueva = []
-        array.forEach(el => { listaNueva.push(parseInt(el.cost))})
-        valorMax = Math.max(...listaNueva)
-    }
-
-    // array que pasaremos a Imprimir con el filtro predefinido
-    let arrayFiltrado = []
-
-    // ejecuta que elementos dentro del array viejo se van a incorporar al array nuevo
-    for (const producto of array) {
-        if (valorMin <= producto.cost && valorMax >= producto.cost) {
-            arrayFiltrado.push(producto)
-        }
-    }
-    // imprime mi nuevo array filtrado y a su vez en la funcion permite que los demas filtros se apliquen a este array
-    imprimirLista(arrayFiltrado)
-}
-
-// cambia los valores introducidos en los campos de filtro del usuario y ejecuta nuevamente filtroPorPrecio
-const limpiarPrecioFiltro = (array) => {
-    document.getElementById('rangeFilterPriceMin').value = 0
-    document.getElementById('rangeFilterPriceMax').value = ""
-    filtroPorPrecio(array)
-}
-
-//* ----------   IMPRIMIR LISTA DE PRODUCTOS EN HTML   ----------
-
-const imprimirLista = (res) => {
-
-    listaProductos.innerHTML = ''   // funciona para limpiar la lista una vez sea actualizo el filtro
-    const fragment = document.createDocumentFragment()
-    // recorro mi array y coloco cada elemento dentro de un un target
-    for (const infoProducto of res) {
-
-        const producto = document.createElement('A')
-        producto.setAttribute('href', 'product-info.html')
-        producto.classList.add('list-group-item', 'list-group-item-action')
-        producto.innerHTML = `
-        <div class="row">
-            <div class="col-3">
-                <img src="${infoProducto.imgSrc}" alt="${infoProducto.description}" class="img-thumbnail">
-            </div>
-            <div class="col">
-                <div class="d-flex w-100 justify-content-between">
-                    <h4 class="mb-1">${infoProducto.name}</h4>
-                    <div>
-                    <span class="product-rel h6">${infoProducto.soldCount} vendidos!</span>
-                        <span class="product-price h5">${infoProducto.currency} ${infoProducto.cost}</span>
-                    </div>
-                </div>
-                <p class="mb-1">` + infoProducto.description + `</p>
-            </div>
-        </div>
-        `
-        fragment.appendChild(producto)
-    }
-
-    // genera una copia de mi array antiguo para poder hacer filtrados a este y no a mi array original en el que se ven todos los productos
-    nuevoArray = res
-
-    listaProductos.appendChild(fragment)
-}
-
-const listaProductos = document.getElementById('lista-productos')
 
 //* ----------   VALIDAROR DE JSON y DETECTAR DOM  ----------
 
 document.addEventListener("DOMContentLoaded", function (e) {
-    // evalua el url
+    // evalua la url y responde a sus peticiones
     fetch(PRODUCTS_URL)
 
         .then(res => res.ok ? Promise.resolve(res) : Promise.reject(res))   // verifico que la url sea correcta
@@ -176,12 +52,11 @@ document.addEventListener("DOMContentLoaded", function (e) {
                 limpiarPrecioFiltro(res)
             })
 
-            //? filtro por palabra
+            // filtro por palabra
             filtroPalabra.addEventListener('keyup', () => {
                 filtroPorPalabras(res)
             })
         })
-
         // en caso de no pasar bien la url informo el problema al usuario y al desarrollador desde consola
         .catch(err => {
             const mensajeError = document.createElement('P')
@@ -191,3 +66,142 @@ document.addEventListener("DOMContentLoaded", function (e) {
             console.error('Error en el fetch o en la toma de la url. Nombre del error: ' + err.status)
         })
 });
+
+
+//*   ----------   CONDICIONES DE FILTRADO   ----------
+
+// filtro ascendente
+const filtroAsc = (array) => {
+    array.sort((a,b) => {
+        if ( parseInt(a.cost) > parseInt(b.cost) ) return -1
+        if ( parseInt(a.cost) < parseInt(b.cost) ) return 1
+        return 0;
+    })
+    imprimirLista(array)
+}
+
+
+// filtro descendente
+const filtroDesc = (nuevoArray) => {
+    nuevoArray.sort((a, b) => {
+        if ( parseInt(a.cost) < parseInt(b.cost) )return -1
+        if ( parseInt(a.cost) > parseInt(b.cost) )return 1
+        return 0;
+    })
+    imprimirLista(nuevoArray)
+}
+
+
+// filtro de relevancia
+const filtroRelevancia = (nuevoArray) => {
+    nuevoArray.sort((a,b) => {
+        if ( parseInt(a.soldCount) > parseInt(b.soldCount) )return -1
+        if ( parseInt(a.soldCount) < parseInt(b.soldCount) )return 1
+        return 0;
+    })
+    imprimirLista(nuevoArray)
+}
+
+// filtro por palabras
+const filtroPorPalabras = (array) => {
+    let palabra = filtroPalabra.value.toLowerCase()
+
+    let arrayFiltroPalabras = []
+    array.forEach(el => {
+        let nombreProducto = el.name.toLowerCase()
+        if (nombreProducto.indexOf(palabra) !== -1) {
+            arrayFiltroPalabras.push(el)
+            console.log(arrayFiltroPalabras)
+            console.log(el)
+        }
+        imprimirLista(arrayFiltroPalabras)
+    })
+}
+
+// filtro por precio introducido por el usuario
+const filtroPorPrecio = (array) => {
+
+    // por cada click que doy a filtrar me toma el valor introducido
+    const precioMin = document.getElementById('rangeFilterPriceMin').value
+    const precioMax = document.getElementById('rangeFilterPriceMax').value
+    
+    // evalua el valor introducido en el campo de valor minimo
+    if ((precioMin != undefined) && (precioMin != "")) valorMin = parseInt(precioMin)
+    else valorMin = 0
+    
+    // evalua el valor introducido en el campo de valor maximo
+    if ((precioMax != undefined) && (precioMax != "")) valorMax = parseInt(precioMax)
+    else {
+        let listaNueva = []
+        array.forEach(el => { listaNueva.push(parseInt(el.cost))})
+        valorMax = Math.max(...listaNueva)  // devuelve el valor numerico maximo de mi array
+    }
+
+    // array nuevo que pasaremos a ImprimirLista
+    let arrayFiltrado = []
+
+    // ejecuta que elementos dentro del array viejo se van a incorporar al array nuevo
+    for (const producto of array) {
+        if (valorMin <= producto.cost && valorMax >= producto.cost) {
+            arrayFiltrado.push(producto)
+        }
+    }
+    // imprime mi nuevo array filtrado y a su vez en la funcion permite que los demas filtros se apliquen a este array
+    imprimirLista(arrayFiltrado)
+}
+
+// cambia los valores introducidos en los campos de filtro del usuario y ejecuta nuevamente filtroPorPrecio
+// reestablece los valores predefinidos del filtrado
+const limpiarPrecioFiltro = (array) => {
+    document.getElementById('rangeFilterPriceMin').value = 0
+    document.getElementById('rangeFilterPriceMax').value = ""  // lo igualo a '' para que dentro de la funcion ImprimirLista, se iguale al costo maximo del array
+
+    filtroPorPrecio(array)
+}
+
+
+//* ----------   IMPRIMIR LISTA DE PRODUCTOS EN HTML   ----------
+
+const imprimirLista = (res) => {
+
+    listaProductos.innerHTML = ''   // funciona para limpiar la lista una vez sea actualizo el filtro y no tener productos duplicados
+
+    const fragment = document.createDocumentFragment()
+
+    // recorro mi array y coloco cada elemento dentro de un un target
+    for (const infoProducto of res) {
+
+        const producto = document.createElement('A')
+
+        producto.setAttribute('href', 'product-info.html')
+    
+        producto.classList.add('list-group-item', 'list-group-item-action')
+
+        producto.innerHTML = `
+        <div class="row">
+            <div class="col-3">
+                <img src="${infoProducto.imgSrc}" alt="${infoProducto.description}" class="img-thumbnail">
+            </div>
+            <div class="col">
+                <div class="d-flex w-100 justify-content-between">
+                    <h4 class="mb-1">${infoProducto.name}</h4>
+                    <div>
+                    <span class="product-rel h6">${infoProducto.soldCount} vendidos!</span>
+                        <span class="product-price h5">${infoProducto.currency} ${infoProducto.cost}</span>
+                    </div>
+                </div>
+                <p class="mb-1">` + infoProducto.description + `</p>
+            </div>
+        </div>
+        `
+
+        fragment.appendChild(producto)
+    }
+
+    // genera una copia de mi array antiguo para poder hacer filtrados a este y no a mi array original en el que se ven todos los productos
+    nuevoArray = res
+
+    listaProductos.appendChild(fragment)
+}
+
+const listaProductos = document.getElementById('lista-productos')

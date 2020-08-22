@@ -19,8 +19,8 @@ document.addEventListener("DOMContentLoaded", function(e){
         const valueEmail = validateEmail(inputEmail.value)     // origin: validation.js / devuelve si el email cumple la verificacion
 
         if (valueEmail) {
-            window.sessionStorage.setItem('user', inputEmail.value)     //guardo mi usuario hasta que el navegador se cierre
-            location.replace('index.html')     // redirige a index.html
+            window.localStorage.setItem('user', inputEmail.value)     //guardo mi usuario hasta que el navegador se cierre
+            location.replace('products.html')     // redirige a index.html
         } else {
             console.error('El valor del campo de email no cumple con la validación establecida en validation.js')   //error en consola
             alert('Introdujo una cuenta de email que no cumple con la validación. Revise nuevamente.')      //error para el usuario
@@ -38,7 +38,6 @@ document.addEventListener("DOMContentLoaded", function(e){
 
     // cuando escribo en la casilla del password
     //TODO: Mejorar la funcionalidad del mismo para que no se recargue por cada caracter escrito - OPTIMIZAR
-    //* para desarrollador: descargar extencion: Better Comments para diferenciar comentarios en el proyecto
     inputPass.addEventListener('input', (e) => {
         imageSignin.setAttribute('src', 'img/signin02.png')     // selecciona el logotipo con los ojos cerrados
     })

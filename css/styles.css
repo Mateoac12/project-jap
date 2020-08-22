@@ -2,6 +2,23 @@
   border-radius: 0 0 10% 10%;
 }
 
+.boton-usuario{
+  right: 10%;
+}
+
+.imagen-usuario{
+  border-radius: 50%;
+  background-color: white;
+}
+
+#mostrarEmail {
+  color: #d31c6b;
+}
+
+.nav-link::after {
+  bottom: 20px;
+}
+
 .product-price {
   background-color: #d31c6b;
   color: white;
