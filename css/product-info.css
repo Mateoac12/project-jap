@@ -1,0 +1,47 @@
+.photo-box {
+    background: #d31c6b;
+    position: relative;
+}
+
+.photo-box__item {
+    cursor: pointer;
+    position: relative;
+}
+
+.photo-box:hover .photo-box__item{
+    top: -2px;
+    left: -2px;
+}
+
+
+.product-info__cost {
+    display: inline-block;
+    background-color: #d31c6b;
+    color: white;
+    padding: 8px;
+    justify-content: right;
+}
+
+.product-category {
+
+    background-color: tomato;
+    color: white;
+    display: inline-block;
+    padding: 4px;
+    border-radius: 5%;
+}
+
+#numSold {
+    display: inline-block;
+    height: 2em;
+    width: 2em;
+    line-height: 2em;
+    text-align: center;
+    color: white;
+    border-radius: 5%;
+}
+
+.order {
+    order: -1;
+}
+

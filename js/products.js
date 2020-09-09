@@ -111,8 +111,6 @@ const filtroPorPalabras = (array) => {
         let nombreProducto = el.name.toLowerCase()
         if (nombreProducto.indexOf(palabra) !== -1) {
             arrayFiltroPalabras.push(el)
-            console.log(arrayFiltroPalabras)
-            console.log(el)
         }
         imprimirLista(arrayFiltroPalabras)
     })
@@ -167,16 +165,14 @@ const imprimirLista = (res) => {
     listaProductos.innerHTML = ''   // funciona para limpiar la lista una vez sea actualizo el filtro y no tener productos duplicados
 
     const fragment = document.createDocumentFragment()
-
     // recorro mi array y coloco cada elemento dentro de un un target
     for (const infoProducto of res) {
-
+        
         const producto = document.createElement('A')
-
+        
         producto.setAttribute('href', 'product-info.html')
-    
+        
         producto.classList.add('list-group-item', 'list-group-item-action')
-
         producto.innerHTML = `
         <div class="row">
             <div class="col-3">
