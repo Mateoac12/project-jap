@@ -45,3 +45,29 @@
     order: -1;
 }
 
+.box-coment {
+    clip-path: polygon(100% 0%, 100% 100%, 4% 100%, 4% 44%, 0 29%, 4% 17%, 4% 0);
+    background-color: white;
+}
+
+.box-form, .comment {
+    padding-left: 4%;
+}
+
+.textarea {
+    resize: none;
+}
+
+.box-star {
+    background-color: #d31c6b;
+}
+
+.box-star i {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    color: white;
+}
+

@@ -65,24 +65,23 @@
     <main class="bg-light rounded container py-2">
         <header id="product-info" class="my-3 py-2 row">
             <div class="col-6">
-                <h2 class="h2 product-info__name">Chevrolet Onix Joy</h2>
+                <!-- NOMBRE DEL PRODUCTO -->
+                <h2 id="name-product" class="h2 product-info__name"></h2>
             </div>
 
             
             <div class="col-lg-7 container">
+                <!-- IMAGENES DEL PRODUCTO -->
                 <div id="box-images" class="row container">
-                    <div class="col-12 p-0 pb-1"><img class="photo-box__item img-fluid " src="img/prod1.jpg" alt=""></div>
-                    <div class="photo-box col-3 p-0"><img class="photo-box__item img-fluid " src="img/prod1_1.jpg" alt=""></div>
-                    <div class="photo-box col-3 p-0"><img class="photo-box__item img-fluid " src="img/prod1_2.jpg" alt=""></div>
-                    <div class="photo-box col-3 p-0"><img class="photo-box__item img-fluid " src="img/prod1_3.jpg" alt=""></div>
-                    <div class="photo-box col-3 p-0"><img class="photo-box__item img-fluid " src="img/prod1_4.jpg" alt=""></div>
+
                 </div>
             </div>
             <div class="col-lg-5">
                 <div class="row container">
                     <div class="col-12 p-0">
-                        <p class="lead">Descripcion:</p>
-                        <p>Potenciá tu actitud con Onix Joy que, además de destacarse por su diseño juvenil y moderno, te ofrecé una óptima autonomía, un desempeño equilibrado y el máximo confort interior. \u003cbr\u003eYa sea un viaje largo o un simple paseo por la ciudad, el confort es uno de los puntos fuertes del Onix. Esta versión incluye aire acondicionado, asientos tapizados en tela y gran espacio interior que te garantiza el máximo confort.</p>
+                        <p class="lead">Descripción:</p>
+                        <!-- DESCRIPCION DEL PRODUCTO -->
+                        <p id="description-product"></p>
                     </div>
                     <div class="col-12">
 
@@ -91,7 +90,8 @@
                                 <p class="lead">Precio:</p>
                             </div>
                             <div class="col-8 text-right p-0">
-                                <h3 class="product-info__cost">USD 13500</h3>
+                                <!-- PRECIO DEL PRODUCTO -->
+                                <h3 id="cost-product" class="product-info__cost"></h3>
                             </div>
                         </div>
                     </div>
@@ -99,10 +99,11 @@
 
                         <div class="contenedor row p-0 d-flex align-items-center">
                             <div class="col-4 p-0">
-                                <p class="lead">Categoria:</p>
+                                <p class="lead">Categoría:</p>
                             </div>
                             <div class="col-8 text-right p-0">
-                                <p class="lead product-category"><i class="fas fa-car"></i> Autos</p>
+                                <!-- CATEGORIA DEL PRODUCTO -->
+                                <p id="category-product" class="lead product-category"></p>
                             </div>
                         </div>
                     </div>
@@ -112,20 +113,62 @@
                                         <p class="lead">Vendidos:</p>
                                     </div>
                                     <div class="col-8 text-right p-0">
-                                        <p id="numSold" class="lead bg-warning">14</p>
+                                        <!-- CANTIDAD DE PRODUCTOS VENDIDOS -->
+                                        <p id="numSold" class="lead bg-warning"></p>
                                     </div>
                                 </div>
                     </div>
                     <div class="my-5 col-12">
                         <hr>
-                        <button class="btn btn-block btn-info">Agregar al Carrito</button>
+                        <button class="btn btn-block btn-info"><i class="fa fa-shopping-bag" aria-hidden="true"></i> Agregar al Carrito</button>
                     </div>
                 </div>
             </div>
         </header>
     </main>
 
-  </div>
+    <!-- NOMBRE DEL PRODUCTO -->
+    <main class="bg-light rounded container py-2 mt-2">
+        <header id="box-recomendation" class="my-3 py-2 row">
+            <h2 class="col-12 h2 product-info__name">Nuestras recomendaciones!</h2>
+        </header>
+    </main>
+
+    <!-- ESPACIO PARA PODER REALIZAR Y VER COMENTARIOS -->
+    <main class="bg-light rounded container py-2 mt-2 pt-4">
+        <h2 class="col-12 h2 pb-2">Comentarios de otros usuarios</h2>
+        <header class="my-3 py-2 row container">
+            <div class="col-1 text-center"><img src="img/signin01.png" alt="Usuario" width="35"></div>
+            <div class="col-9 box-coment">
+                <form class="box-form">
+                    <div class="form-group my-2">
+                        <textarea class="form-control textarea" id="user-comment" rows="3" placeholder="Escribe tu comentario aqui!"></textarea>
+                    </div>
+                </form>
+            </div>
+            <div id="select-star" class="col-2 d-flex box-star">
+                <i class="far fa-star" data-value='1'></i>
+                <i class="far fa-star" data-value='2'></i>
+                <i class="far fa-star" data-value='3'></i>
+                <i class="far fa-star" data-value='4'></i>
+                <i class="far fa-star" data-value='5'></i>
+            </div>
+
+        </header>
+        <button id="botton-push-comment" class="btn btn-primary btn-block w-25 mx-auto">Dejar el comentario</button>
+        <br>
+        <hr>
+        <!-- * COMENTARIO DE LOS USUARIOS  -->
+        <div id="box-coment-users" class="box-coment-users">
+
+        </div>
+    </main>
+    
+</div>
+
+
+
+
   <footer class="text-muted">
     <div class="container">
       <p class="float-right">
@@ -145,6 +188,7 @@
   </div>
   <script src="js/jquery-3.4.1.min.js"></script>
   <script src="js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
   <script src="js/init.js"></script>
   <script src="js/product-info.js"></script>
 </body>
