@@ -1,0 +1,53 @@
+
+.image-category {
+    position: relative;
+    left: 0em;
+    border-radius: 15px;
+    transition: left 500ms;
+}
+
+.flex-name {
+    width: 80%;
+}
+
+.flex-productCount {
+    width: 20%;
+    background-color:#d31c6b;
+    display: grid;
+    margin: 15px;
+    color: white;
+    border-radius: 50%;
+}
+
+
+.flex-productCount span:first-child {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+}
+
+.flex-productCount span:last-child {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+
+/* ELEMENTOS EN HOVER  */
+
+.box-item:hover {
+    background-color: #d31c6b;
+}
+
+.box-item:hover .image-category {
+    left: -.5em;
+}
+
+.box-item:hover .flex-name {
+    color: white;
+}
+
+.box-item:hover .flex-productCount {
+    background-color: #fff;
+    color: #d31c6b;
+}

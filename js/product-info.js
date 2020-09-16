@@ -77,6 +77,7 @@ document.addEventListener("DOMContentLoaded", function(e){
 
     getJSONData(PRODUCTS_URL).then((res) => {
         if (res.status === "ok") {
+
             let infoRes = res.data
 
             productsRecoment.forEach(num => {
@@ -149,7 +150,7 @@ document.addEventListener("DOMContentLoaded", function(e){
         `
         boxComentUsers.appendChild(boxUserComment)
 
-        // alerta de que se publico correctamente el comentario
+        // alerta de: se publico correctamente el comentario
         Swal.fire({
             position: 'top-end',
             icon: 'success',
