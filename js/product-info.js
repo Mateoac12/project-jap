@@ -108,10 +108,12 @@ document.addEventListener("DOMContentLoaded", function(e){
 
         starSelected = parseInt(e.target.dataset.value)
 
+        /* cuando damos un click pone todas las estrellas vacias para luego rellenar en el siguiente for */
         for (let i = 0; i < selectStar.childElementCount; i++) {
-            selectStar.children[i].classList.replace('fas', 'far')
+            selectStar.children[i].classList.replace('fas', 'far')  /* fas: estrella llena   |   far: estrella vacia (elementos de font awasome) */
         }
 
+        /* rellena todas las estrellas desde la inicial hasta la que seleccione */
         for (let i = 0; i < starSelected; i++) {
             selectStar.children[i].classList.replace('far', 'fas')
         }
