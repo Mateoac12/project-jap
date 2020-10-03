@@ -37,8 +37,7 @@ document.addEventListener("DOMContentLoaded", function(e){
 
 
     // cuando escribo en la casilla del password
-    //TODO: Mejorar la funcionalidad del mismo para que no se recargue por cada caracter escrito - OPTIMIZAR
-    inputPass.addEventListener('input', (e) => {
+    inputPass.addEventListener('focus', (e) => {
         imageSignin.setAttribute('src', 'img/signin02.png')     // selecciona el logotipo con los ojos cerrados
     })
 
