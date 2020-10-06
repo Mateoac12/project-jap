@@ -92,17 +92,21 @@
       </div>
 
       <div class="box-item">
+        <!-- LISTA DE TODOS LOS PRODUCTOS QUE COMPRE -->
         <div class="box-item__products">
           <div class="field">
             <div class="field__image">
-              <img src="img/tree1.jpg" alt="Primer producto en orden de venta">
+              <img src="img/tree1.jpg" alt="Primer producto en orden de venta" class="field__image--element">
             </div>
             <div class="field__info">
               <div class="field__info--nombre">
-                <h4 class="none-margin">Pino de olor para el auto</h4>
+                <p class="none-margin">Pino de olor para el auto</p>
               </div>
               <div class="field__info--costo">
-                <p class="none-margin">UYU100</p>
+                <p class="none-margin">
+                  <small class="field__info--costo--title">Costo</small>
+                </p>
+                <p class="field__info--costo--value">UYU100</p>
               </div>
               <div class="field__info--cantidad">
                 <input type="number" name="number" id="number" min="1" max="100" value="1" class="none-margin field__info--count">
@@ -114,6 +118,36 @@
           </div>
         </div>
         <div class="box-item__left">
+         <!-- TODO continuar por aqui agregando los elementos de tipo de envio -->
+         <div class="box-item__envio">
+          <div class="box-item__header">
+            <h4 class="box-item__header--title">envio</h4>
+          </div>
+          <div class="box-item__envio--element">
+           <h4 class="envio-title">Premium</h4>
+           <span>2 a 5 dias (15%)</span>
+          </div>
+          <div class="box-item__envio--element">
+           <h4 class="envio-title">Express</h4>
+           <span>5 a 8 dias (7%)</span>
+          </div>
+          <div class="box-item__envio--element">
+           <h4 class="envio-title">Standard</h4>
+           <span>12 a 15 dias (5%)</span>
+          </div>
+        </div>
+         <!-- TODO Agregar la direccion  -->
+         <div class="box-item__direction">
+          <div class="box-item__direction--header">
+            <h4 class="direction-title">direccion</h4>
+          </div>
+              <form class="form-direction">
+                <input type="text" name="calle" id="calle" placeholder="Calle" class="form__input">
+                <input type="number" name="numero" id="numero" placeholder="Número" class="form__input">
+                <input type="text" name="esquina" id="esquina" placeholder="Esquina" class="form__input">
+              </form>
+        </div>
+        <!-- TODO orden -->
          <div class="box-item__order">
            <div class="order-header">
              <h1 class="order-header__title">Orden</h1>
@@ -139,11 +173,12 @@
              <button class="button-left">UYU</button>
              <button class="button-right">US$</button>
            </div>
+            <!-- TODO Agregar comprar -->
+            <div class="box-item__send">
+              <button class="box-item__send--buttom">Comprar</button>
+            </div>
          </div>
-         <!-- TODO continuar por aqui agregando los elementos de tipo de envio -->
-         <!-- TODO Agregar la direccion  -->
-         <!-- TODO Agregar comprar -->
-         <!-- TODO Si da tiempo, agregar codigo promocional para socios (uno especial para Daniel) -->
+
         </div>
       </div>
     </div>
