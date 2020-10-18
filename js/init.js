@@ -1,58 +1,62 @@
-const CATEGORIES_URL = "https://japdevdep.github.io/ecommerce-api/category/all.json";
-const PUBLISH_PRODUCT_URL = "https://japdevdep.github.io/ecommerce-api/product/publish.json";
-const CATEGORY_INFO_URL = "https://japdevdep.github.io/ecommerce-api/category/1234.json";
-const PRODUCTS_URL = "https://japdevdep.github.io/ecommerce-api/product/all.json";
-const PRODUCT_INFO_URL = "https://japdevdep.github.io/ecommerce-api/product/5678.json";
-const PRODUCT_INFO_COMMENTS_URL = "https://japdevdep.github.io/ecommerce-api/product/5678-comments.json";
-const CART_INFO_URL = "https://japdevdep.github.io/ecommerce-api/cart/987.json";  // mustra un producto solo en el carro de venta
+const CATEGORIES_URL =
+  "https://japdevdep.github.io/ecommerce-api/category/all.json";
+const PUBLISH_PRODUCT_URL =
+  "https://japdevdep.github.io/ecommerce-api/product/publish.json";
+const CATEGORY_INFO_URL =
+  "https://japdevdep.github.io/ecommerce-api/category/1234.json";
+const PRODUCTS_URL =
+  "https://japdevdep.github.io/ecommerce-api/product/all.json";
+const PRODUCT_INFO_URL =
+  "https://japdevdep.github.io/ecommerce-api/product/5678.json";
+const PRODUCT_INFO_COMMENTS_URL =
+  "https://japdevdep.github.io/ecommerce-api/product/5678-comments.json";
+const CART_INFO_URL = "https://japdevdep.github.io/ecommerce-api/cart/987.json"; // mustra un producto solo en el carro de venta
 const CART_BUY_URL = "https://japdevdep.github.io/ecommerce-api/cart/buy.json";
+const EXTRA_CART_INFO_URL =
+  "https://japdevdep.github.io/ecommerce-api/cart/654.json";
 
-
-var showSpinner = function(){
+var showSpinner = function () {
   document.getElementById("spinner-wrapper").style.display = "block";
-}
+};
 
-var hideSpinner = function(){
+var hideSpinner = function () {
   document.getElementById("spinner-wrapper").style.display = "none";
-}
+};
 
-var getJSONData = function(url){
-    var result = {};
-    showSpinner();
-    return fetch(url)
-    .then(response => {
+var getJSONData = function (url) {
+  var result = {};
+  showSpinner();
+  return fetch(url)
+    .then((response) => {
       if (response.ok) {
         return response.json();
-      }else{
+      } else {
         throw Error(response.statusText);
       }
     })
-    .then(function(response) {
-          result.status = 'ok';
-          result.data = response;
-          hideSpinner();
-          return result;
+    .then(function (response) {
+      result.status = "ok";
+      result.data = response;
+      hideSpinner();
+      return result;
     })
-    .catch(function(error) {
-        result.status = 'error';
-        result.data = error;
-        hideSpinner();
-        return result;
+    .catch(function (error) {
+      result.status = "error";
+      result.data = error;
+      hideSpinner();
+      return result;
     });
-}
+};
 
 //Función que se ejecuta una vez que se haya lanzado el evento de
 //que el documento se encuentra cargado, es decir, se encuentran todos los
 //elementos HTML presentes.
-document.addEventListener("DOMContentLoaded", function(e){
-
+document.addEventListener("DOMContentLoaded", function (e) {
   // valida si hay un usuario registrado, si no es asi redirige a login.html
-  if (localStorage.getItem('user') == null) {
-    location.replace('login.html')
-  }
-  else {
-
-    const mostrarUsuario = document.getElementById('carrito-usuario')
+  if (localStorage.getItem("user") == null) {
+    location.replace("login.html");
+  } else {
+    const mostrarUsuario = document.getElementById("carrito-usuario");
     mostrarUsuario.innerHTML += `
       <ul class="navbar-nav d-inline boton-usuario">
       <li class="nav-item dropdown d-inline">
@@ -73,18 +77,18 @@ document.addEventListener("DOMContentLoaded", function(e){
           </div>
       </li>
   </ul> 
-  `
+  `;
 
-    mostrarEmail.textContent = localStorage.getItem('user')
+    mostrarEmail.textContent = localStorage.getItem("user");
   }
 
   //*   ----------  OPCIONES BOTONES SESION   ----------
 
-  const botonCerrarSesion = document.getElementById('boton-cerrar-sesion')
-  botonCerrarSesion.addEventListener('click', () => {
-    localStorage.removeItem('user')
-    location.reload()
-  })
+  const botonCerrarSesion = document.getElementById("boton-cerrar-sesion");
+  botonCerrarSesion.addEventListener("click", () => {
+    localStorage.removeItem("user");
+    location.reload();
+  });
 
   //TODO: Crear funcionalidades de DOM cuando de click en botones como por ejemplo el de cerrar sesion
 });

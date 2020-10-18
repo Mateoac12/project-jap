@@ -1,19 +1,27 @@
 <!DOCTYPE html>
 <!-- saved from url=(0049)https://getbootstrap.com/docs/4.3/examples/album/ -->
 <html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
-<head>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta name="description" content="" />
+    <title>eMercado - Todo lo que busques está aquí</title>
 
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="">
-  <title>eMercado - Todo lo que busques está aquí</title>
+    <link
+      rel="canonical"
+      href="https://getbootstrap.com/docs/4.3/examples/album/"
+    />
+    <link href="css/font-awesome.min.css" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i"
+      rel="stylesheet"
+    />
 
-  <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/album/">
-  <link href="css/font-awesome.min.css" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
-
-<!--   <style>
+    <!--   <style>
     .bd-placeholder-img {
       font-size: 1.125rem;
       text-anchor: middle;
@@ -29,185 +37,249 @@
       }
     }
   </style> -->
-  <link href="css/bootstrap.min.css" rel="stylesheet">
-  <link href="css/styles.css" rel="stylesheet">
-  <link href="css/dropzone.css" rel="stylesheet">
-  <!-- Personal custom CSS -->
-  <link rel="stylesheet" href="css/cart.css">
-</head>
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+    <link href="css/styles.css" rel="stylesheet" />
+    <link href="css/dropzone.css" rel="stylesheet" />
+    <!-- Personal custom CSS -->
+    <link rel="stylesheet" href="css/cart.css" />
+  </head>
 
-<body>
-  <!-- NAVBAR -->
-    <div id="header" class="navbar navbar-expand-lg bg-dark navbar-dark sticky-top p-1">
+  <body>
+    <!-- NAVBAR -->
+    <div
+      id="header"
+      class="navbar navbar-expand-lg bg-dark navbar-dark sticky-top p-1"
+    >
       <div class="container">
-          <div class="row justify-content-between w-100">
-              <div class="col-4">
-                  <span class="navbar-brand mb-0"><a href="index.html">
-                      <img src="img/logoHome.png" alt="logo" loading="lazy" id="logo" style="height: 50px">
-                  </a></span>
-              </div>
-              <div class="col-4">
-                  <div class="collapse navbar-collapse  text-center" id="navbarNavAltMarkup">
-                      <div class="row justify-content-around w-100">
-                          <ul class="navbar-nav">
-                              <div class="col-4">
-                                  <li class="nav-item">
-                                      <a href="categories.html" class="nav-link h5 font-weight-light mb-0">Categorias</a>
-                                  </li>
-                              </div>
-                              <div class="col-4">
-                                  <li class="nav-item">
-                                      <a href="products.html" class="nav-link h5 font-weight-light mb-0">Productos</a>
-                                  </li>
-                              </div>
-                              <div class="col-4">
-                                  <li class="nav-item">
-                                      <a href="sell.html" class="nav-link h5 font-weight-light mb-0">Vender</a>
-                                  </li>
-                              </div>
-                          </ul>
-                      </div>
-                  </div>        
-              </div>
-              <div id="carrito-usuario" class="col-4 text-right">
-                  <a href="cart.html" class="navbar-brand h1 mb-0">
-                      <i class="fa fa-shopping-bag" aria-hidden="true"></i>
-                  </a>
-                  
-                  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target='#navbarNavAltMarkup' aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                      <span class="navbar-toggler-icon"></span>
-                  </button>
-              </div>
+        <div class="row justify-content-between w-100">
+          <div class="col-4">
+            <span class="navbar-brand mb-0"
+              ><a href="index.html">
+                <img
+                  src="img/logoHome.png"
+                  alt="logo"
+                  loading="lazy"
+                  id="logo"
+                  style="height: 50px"
+                /> </a
+            ></span>
           </div>
-      </div>
-  </div>
-
-<!--* COMENZAR A TRABAJAR A PARTIR DE AQUI -->
-  <div class="container pt-5">
-
-    <div class="header-main">
-      <div class="header-main__titles">
-        <h1 class="title">Tu <span class="title__effect">super</span> carrito!</h1>
-        <p>Aqui podras ver todos los productos que seran tuyos <i class="fas fa-smile smile-style"></i></p>
-      </div>
-
-      <div class="box-item">
-        <!-- LISTA DE TODOS LOS PRODUCTOS QUE COMPRE -->
-        <div class="box-item__products">
-          <div class="field">
-            <div class="field__image">
-              <img src="img/tree1.jpg" alt="Primer producto en orden de venta" class="field__image--element">
-            </div>
-            <div class="field__info">
-              <div class="field__info--nombre">
-                <p class="none-margin">Pino de olor para el auto</p>
-              </div>
-              <div class="field__info--costo">
-                <p class="none-margin">
-                  <small class="field__info--costo--title">Costo</small>
-                </p>
-                <p class="field__info--costo--value">UYU100</p>
-              </div>
-              <div class="field__info--cantidad">
-                <input type="number" name="number" id="number" min="1" max="100" value="1" class="none-margin field__info--count">
-              </div>
-              <div class="field__info--subtotal">
-                <p class="none-margin">UYU100</p>
+          <div class="col-4">
+            <div
+              class="collapse navbar-collapse text-center"
+              id="navbarNavAltMarkup"
+            >
+              <div class="row justify-content-around w-100">
+                <ul class="navbar-nav">
+                  <div class="col-4">
+                    <li class="nav-item">
+                      <a
+                        href="categories.html"
+                        class="nav-link h5 font-weight-light mb-0"
+                        >Categorias</a
+                      >
+                    </li>
+                  </div>
+                  <div class="col-4">
+                    <li class="nav-item">
+                      <a
+                        href="products.html"
+                        class="nav-link h5 font-weight-light mb-0"
+                        >Productos</a
+                      >
+                    </li>
+                  </div>
+                  <div class="col-4">
+                    <li class="nav-item">
+                      <a
+                        href="sell.html"
+                        class="nav-link h5 font-weight-light mb-0"
+                        >Vender</a
+                      >
+                    </li>
+                  </div>
+                </ul>
               </div>
             </div>
           </div>
-        </div>
-        <div class="box-item__left">
-         <!-- TODO continuar por aqui agregando los elementos de tipo de envio -->
-         <div class="box-item__envio">
-          <div class="box-item__header">
-            <h4 class="box-item__header--title">envio</h4>
-          </div>
-          <div class="box-item__envio--element">
-           <h4 class="envio-title">Premium</h4>
-           <span>2 a 5 dias (15%)</span>
-          </div>
-          <div class="box-item__envio--element">
-           <h4 class="envio-title">Express</h4>
-           <span>5 a 8 dias (7%)</span>
-          </div>
-          <div class="box-item__envio--element">
-           <h4 class="envio-title">Standard</h4>
-           <span>12 a 15 dias (5%)</span>
+          <div id="carrito-usuario" class="col-4 text-right">
+            <a href="cart.html" class="navbar-brand h1 mb-0">
+              <i class="fa fa-shopping-bag" aria-hidden="true"></i>
+            </a>
+
+            <button
+              class="navbar-toggler"
+              type="button"
+              data-toggle="collapse"
+              data-target="#navbarNavAltMarkup"
+              aria-controls="navbarNavAltMarkup"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+            >
+              <span class="navbar-toggler-icon"></span>
+            </button>
           </div>
         </div>
-         <!-- TODO Agregar la direccion  -->
-         <div class="box-item__direction">
-          <div class="box-item__direction--header">
-            <h4 class="direction-title">direccion</h4>
+      </div>
+    </div>
+
+    <!--* COMENZAR A TRABAJAR A PARTIR DE AQUI -->
+    <div class="container pt-5">
+      <div class="header-main">
+        <div class="header-main__titles">
+          <h1 class="title">
+            Tu <span class="title__effect">super</span> carrito!
+          </h1>
+          <p>
+            Listado de tus futuros productos
+          </p>
+        </div>
+
+        <div class="box-item">
+          <!-- LISTA DE TODOS LOS PRODUCTOS QUE COMPRE -->
+          <div class="box-item__products" id="box-item__products">
+            <!-- TODO aqui va el contenido de mi forEach -->
           </div>
-              <form class="form-direction">
-                <input type="text" name="calle" id="calle" placeholder="Calle" class="form__input">
-                <input type="number" name="numero" id="numero" placeholder="Número" class="form__input">
-                <input type="text" name="esquina" id="esquina" placeholder="Esquina" class="form__input">
+          <div class="box-item__left">
+            <!-- TODO continuar por aqui agregando los elementos de tipo de envio -->
+            <div class="box-item__envio" id="box-item__envio">
+              <div class="box-item__header">
+                <h4 class="box-item__header--title">envio</h4>
+              </div>
+              <div id="box-element-send">
+                <div class="box-item__envio--element" data-type="premium">
+                  <h4 class="envio-title">Premium</h4>
+                  <span>2 a 5 dias (15%)</span>
+                </div>
+                <div class="box-item__envio--element" data-type="express">
+                  <h4 class="envio-title">Express</h4>
+                  <span>5 a 8 dias (7%)</span>
+                </div>
+                <div class="box-item__envio--element" data-type="standard">
+                  <h4 class="envio-title">Standard</h4>
+                  <span>12 a 15 dias (5%)</span>
+                </div>
+              </div>
+            </div>
+            <!-- TODO Agregar la direccion  -->
+            <div class="box-item__direction">
+              <div class="box-item__direction--header">
+                <h4 class="direction-title">direccion</h4>
+              </div>
+              <form class="form-direction" id="direccion-envio">
+                <input
+                  type="text"
+                  name="calle"
+                  id="calle"
+                  placeholder="Calle"
+                  class="form__input"
+                  required
+                />
+                <input
+                  type="number"
+                  name="numero"
+                  id="numero"
+                  placeholder="Número"
+                  class="form__input"
+                  required
+                />
+                <input
+                  type="text"
+                  name="esquina"
+                  id="esquina"
+                  placeholder="Esquina"
+                  class="form__input"
+                  required
+                />
               </form>
-        </div>
-        <!-- TODO orden -->
-         <div class="box-item__order">
-           <div class="order-header">
-             <h1 class="order-header__title">Orden</h1>
-           </div>
-           <div class="box-item__body">
-             <div class="order-subtotal">
-               <span class="order-subtotal__title">Subtotal</span>
-               <span class="order-subtotal__items">1 producto</span>
-             </div>
-             <div class="order-products">
-               <span class="order-products__item">Pino de olor para el auto</span>
-               <span>$300</span>
-             </div>
-           </div>
-           <div class="box-item__footer">
-             <h4 class="box-item__footer--total">
-               <span>total:</span>
-               <span>$500</span>
-             </h4>
-           </div>
-           <p>Calcular precio en:</p>
-           <div class="bottons-type-price">
-             <button class="button-left">UYU</button>
-             <button class="button-right">US$</button>
-           </div>
-            <!-- TODO Agregar comprar -->
-            <div class="box-item__send">
-              <button class="box-item__send--buttom">Comprar</button>
             </div>
-         </div>
+            <!-- TODO orden -->
+            <div class="box-item__order">
+              <div class="order-header">
+                <h1 class="order-header__title">Orden</h1>
+              </div>
+              <div class="box-item__body">
+                <div class="order-subtotal">
+                  <span class="order-subtotal__title">Subtotal</span>
+                  <span class="order-subtotal__items"></span>
+                </div>
+                <div id="container-list-products">
+                  <!-- todo contenido de mi lista de productos (nombres) -->
+                  <p id="pino-de-olor">Pino de olor para el auto x<span id="numero-pino-de-olor">1</span></p>
+                  <p id="susuki-celerio">Suzuki Celerio x<span id="numero-susuki-celerio">1</span></p>
+                  <p>Metodo de envio: <span id="texto-metodo-envio"></span></p>
+                </div>
+              </div>
+              <div class="box-item__footer">
+                <h4 class="box-item__footer--total">
+                  <span>total: <small id="tipo-de-moneda-total">US$</small></span>
+                  <span id="total"></span>
+                </h4>
+              </div>
+<!--               <p>Calcular precio en:</p>
+              <div class="bottons-type-price">
+                <button class="button-left" id="button-left">UYU</button>
+                <button class="button-right active" id="button-right">US$</button>
+              </div> -->
+              <!-- TODO Agregar comprar -->
+              <div class="box-item__send">
+                <button type="button" class="box-item__send--buttom" form="direccion-envio" id="boton-comprar" data-toggle="modal" data-target="#personal-modal">Comprar</button>
 
+                <div class="modal fade perosnal-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                  <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Método de Compra</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                      <div class="modal-body">
+                        <div style="text-align: left;">
+                          <div>
+                            <input type="radio" id="mastercard" name="drone" value="Mastercard"
+                                   checked>
+                            <label for="mastercard">Mastercard</label>
+                          </div>
+                          
+                          <div>
+                            <input type="radio" id="paypal" name="drone" value="paypal">
+                            <label for="paypal">PayPal</label>
+                          </div>
+                          
+                          <div>
+                            <input type="radio" id="efectivo" name="drone" value="efectivo">
+                            <label for="efectivo">Efectivo</label>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Salir</button>
+                        <button type="button" class="btn btn-primary">Comprar</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
 
-
-
-  </div>
-
-
-
-
-
-
-
-
-
-  <div id="spinner-wrapper">
-    <div class="lds-ring">
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
+    <div id="spinner-wrapper">
+      <div class="lds-ring">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
     </div>
-  </div>
-  <script src="js/jquery-3.4.1.min.js"></script>
-  <script src="js/bootstrap.bundle.min.js"></script>
-  <script src="js/dropzone.js"></script>
-  <script src="js/init.js"></script>
-  <script src="js/cart.js"></script>
-</body>
-
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/dropzone.js"></script>
+    <script src="js/init.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+  </body>
 </html>
